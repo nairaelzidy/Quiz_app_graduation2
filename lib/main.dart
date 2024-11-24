@@ -8,7 +8,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-// hello
+// hello3
+//restart
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +37,7 @@ class FruitHub extends StatelessWidget {
                 GlobalCupertinoLocalizations.delegate,
             ],
             supportedLocales: S.delegate.supportedLocales,
-            locale: Locale("ar"),
+            locale: Locale("en"),
       debugShowCheckedModeBanner: false,
     onGenerateRoute: onGenerateRoute,
     initialRoute: SplashView.routeName,

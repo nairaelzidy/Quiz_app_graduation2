@@ -17,29 +17,30 @@ class OnBoardingPageView extends StatelessWidget {
         PageviewItem(
           isvisible:
             true,
-          image: Assets.imagesPageViewItem1Image,
+          image: Assets.onboarding_1,
           backgroundImage: Assets.imagesPageViewItem1BackgroundImage,
           subtitle:
               'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'مرحبًا بك في',
-                style: TextStyles.bold23,
-              ),
-              Text(
-                '  HUB',
-                style: TextStyles.bold23.copyWith(
-                  color: AppColors.secondaryColor,
-                ),
-              ),
-              Text(
-                'Fruit',
+               Text(
+                '  Skill',
                 style: TextStyles.bold23.copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
+              Text(
+                'Quest',
+                style: TextStyles.bold23.copyWith(
+                  color: AppColors.primaryColor,
+                ),
+              ),
+              const Text(
+                ' Wellcome to ',
+                style: TextStyles.bold23,
+              ),
+             
             ],
           ),
         ),

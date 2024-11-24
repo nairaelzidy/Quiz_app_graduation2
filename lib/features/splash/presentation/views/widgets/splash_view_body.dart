@@ -25,37 +25,40 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.center,
+      
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            SvgPicture.asset(Assets.imagesPlant),
-          ],
-        ),
-         SvgPicture.asset(Assets.imagesLogo),
-          SvgPicture.asset(Assets.imagesSplashBottom,fit: BoxFit.fill,)
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.end,
+        //   children: [
+        //     SvgPicture.asset(Assets.imagesPlant),
+        //   ],
+        // ),
+       Center(child: Image.asset("assets/images/logo3.png",width: 400,height: 300,)),
+        // SvgPicture.asset(Assets.imagesLogo),
+         // SvgPicture.asset(Assets.imagesSplashBottom,fit: BoxFit.fill,)
       ],
     );
   }
 
    void excuteNaviagtion() {
-   bool isOnBoardingViewSeen = Prefs.getBool(kIsOnBoardingViewSeen);
+   //bool isOnBoardingViewSeen = Prefs.getBool(kIsOnBoardingViewSeen);
     Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
      
-      if (isOnBoardingViewSeen) {
-         Navigator.pushReplacementNamed(context, LoginView.routeName);
-      //   var isLoggedIn = FirebaseAuthService().isLoggedIn();
+      // if (isOnBoardingViewSeen) {
+      //    Navigator.pushReplacementNamed(context, LoginView.routeName);
+      // //   var isLoggedIn = FirebaseAuthService().isLoggedIn();
 
-      //   if (isLoggedIn) {
-      //     Navigator.pushReplacementNamed(context, MainView.routeName);
-      //   } else {
-      //     Navigator.pushReplacementNamed(context, SigninView.routeName);
-      //   }
-      } else {
-        Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
-      }
+      // //   if (isLoggedIn) {
+      // //     Navigator.pushReplacementNamed(context, MainView.routeName);
+      // //   } else {
+      // //     Navigator.pushReplacementNamed(context, SigninView.routeName);
+      // //   }
+      // } else {
+      //   Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      // }
+      
     });
   }
 }

@@ -117,5 +117,6 @@ class Assets {
   /// Assets for imagesWatermelonTest
   /// assets/images/watermelon_test.png
   static const String imagesWatermelonTest = "assets/images/watermelon_test.png";
+  static const String onboarding_1 ="assets/images/onboarding_1.png";
 }
 

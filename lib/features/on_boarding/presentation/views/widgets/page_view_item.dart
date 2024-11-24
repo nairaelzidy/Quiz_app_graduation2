@@ -28,17 +28,18 @@ class PageviewItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.5,
           child: Stack(
             children: [
-              Positioned.fill(
-                child: SvgPicture.asset(
-                  backgroundImage,
-                  fit: BoxFit.fill,
-                ),
-              ),
+              // Positioned.fill(
+              //   child: SvgPicture.asset(
+              //     backgroundImage,
+              //     fit: BoxFit.fill,
+              //   ),
+              // ),
               Positioned(
                 bottom: 0,
+                top: 20,
                 left: 0,
                 right: 0,
-                child: SvgPicture.asset(image),
+                child: Image.asset(image),
               ),
               Visibility(
                 visible:isvisible ,
@@ -50,8 +51,8 @@ class PageviewItem extends StatelessWidget {
                   child: Padding(
                         padding: const EdgeInsets.all(16),
                         child: Text(
-                          'تخط',
-                          style: TextStyles.regular13.copyWith(
+                          'Skip',
+                          style: TextStyles.regular16.copyWith(
                             color: const Color(0xFF949D9E),
                           ),
                         ),
@@ -61,7 +62,7 @@ class PageviewItem extends StatelessWidget {
             ],
           ),
         )
-     , const SizedBox(height: 64,)
+     , const SizedBox(height: 15,)
       ,title,
       const SizedBox(height: 24,),
       Padding(
