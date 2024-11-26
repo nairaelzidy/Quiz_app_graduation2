@@ -70,7 +70,7 @@ class PageviewItem extends StatelessWidget {
         child: Text(
           subtitle,
         textAlign: TextAlign.center,
-         style: TextStyles.semiBold13.copyWith(
+         style: TextStyles.regular16.copyWith(
               color: const Color(0xFF4E5456),
             ),),
       ),

@@ -33,36 +33,18 @@ bool isTermsAcceptted=false;
             TextSpan(
               children: [
                 TextSpan(
-                  text: 'من خلال إنشاء حساب ، فإنك توافق على ',
+                  text: 'By creating an account.  You agree to me.',
                   style: TextStyles.semiBold13.copyWith(
                     color: const Color(0xFF949D9E),
                   ),
                 ),
                 TextSpan(
-                  text: 'الشروط والأحكام',
+                  text: 'Our Terms and Conditions',
                   style: TextStyles.semiBold13.copyWith(
                     color: AppColors.lightPrimaryColor,
                   ),
                 ),
-                const TextSpan(
-                  text: ' ',
-                  style: TextStyles.semiBold13,
-                ),
-                TextSpan(
-                  text: 'الخاصة',
-                  style: TextStyles.semiBold13.copyWith(
-                    color: AppColors.lightPrimaryColor,
-                  ),
-                ),
-                const TextSpan(
-                  text: ' ',
-                  style: TextStyles.semiBold13,
-                ),
-                TextSpan(
-                  text: 'بنا',
-                  style: TextStyles.semiBold13
-                      .copyWith(color: AppColors.lightPrimaryColor),
-                ),
+               
               ],
             ),
           ),

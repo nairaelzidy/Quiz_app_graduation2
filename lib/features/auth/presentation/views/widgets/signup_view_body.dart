@@ -17,21 +17,21 @@ class SignupViewBody extends StatelessWidget {
           children: [
             const SizedBox(height: 24,),
             const CustomTextFormField(
-                hintText: "الاسم بالكام", textInputType: TextInputType.name),
+                hintText: "Name", textInputType: TextInputType.name),
                 const SizedBox(height: 16,),
             const CustomTextFormField(
-                hintText: "البريد الاكتروني",
+                hintText: "Email",
                 textInputType: TextInputType.emailAddress),
                 const SizedBox(height: 16,),
             const CustomTextFormField(
-              hintText: "كلمة المرور",
+              hintText: "Password",
               textInputType: TextInputType.visiblePassword,
               suffixIcon: Icon(Icons.remove_red_eye,color: Color(0xffC9CECF),),
             ),
             const SizedBox(height: 16,),
             const TermsAndConditionWidget(),
             const SizedBox(height: 30,),
-            CustomButton(onPressed: (){}, text: "انشاء حساب جديد"),
+            CustomButton(onPressed: (){}, text: "Create new account"),
             SizedBox(height: 26,),
             const HaveAnAcountWidget(),
           ],

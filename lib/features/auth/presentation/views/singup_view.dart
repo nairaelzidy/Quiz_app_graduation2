@@ -8,7 +8,7 @@ static const routeName="signup";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  BuildappBar(context, titile: "حساب جديد"),
+      appBar:  BuildappBar(context, titile: "New Account"),
       body:SignupViewBody() ,
     );
   }

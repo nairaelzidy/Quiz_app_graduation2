@@ -14,14 +14,14 @@ class dontHaveAnAcount extends StatelessWidget {
     return Text.rich(
      TextSpan(children: [
        TextSpan(
-         text: "لاتمتلك حساب ؟",
+         text: "Don't have account ?",
          style: TextStyles.semiBold16.copyWith(color:const Color(0xFF616A6B)),
        ),
        TextSpan(
         recognizer: TapGestureRecognizer()..onTap = (){
           Navigator.pushNamed(context, SignupView.routeName);
         },
-       text:   " قم بآنشاء حساب",
+       text:   " Create new account",
        style: TextStyles.semiBold16.copyWith(color:AppColors.primaryColor)
     
        )

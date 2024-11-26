@@ -15,14 +15,14 @@ class HaveAnAcountWidget extends StatelessWidget {
     return Text.rich(
      TextSpan(children: [
        TextSpan(
-         text: "تمتلك حساب بالفعل ؟",
+         text: "You already have an account ?",
          style: TextStyles.semiBold16.copyWith(color:const Color(0xFF616A6B)),
        ),
        TextSpan(
         recognizer: TapGestureRecognizer()..onTap = (){
           Navigator.pop(context);
         },
-       text:  " تسجيل الدخول " ,
+       text:  " Sign in" ,
        style: TextStyles.semiBold16.copyWith(color:AppColors.primaryColor)
     
        )

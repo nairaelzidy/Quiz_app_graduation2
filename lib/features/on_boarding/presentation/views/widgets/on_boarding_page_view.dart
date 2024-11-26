@@ -14,18 +14,22 @@ class OnBoardingPageView extends StatelessWidget {
     return PageView(
       controller: pageController,
       children: [
+        
         PageviewItem(
-          isvisible:
-            true,
+          isvisible: true,
           image: Assets.onboarding_1,
           backgroundImage: Assets.imagesPageViewItem1BackgroundImage,
           subtitle:
-              'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
+              "Explore our study materials in IQ and English. \nWe will provide the best resources that will help you improve your skills",
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               Text(
-                '  Skill',
+              const Text(
+                ' Wellcome to ',
+                style: TextStyles.bold23,
+              ),
+              Text(
+                'Skill',
                 style: TextStyles.bold23.copyWith(
                   color: AppColors.primaryColor,
                 ),
@@ -36,22 +40,17 @@ class OnBoardingPageView extends StatelessWidget {
                   color: AppColors.primaryColor,
                 ),
               ),
-              const Text(
-                ' Wellcome to ',
-                style: TextStyles.bold23,
-              ),
-             
             ],
           ),
         ),
         const PageviewItem(
-          isvisible:false,
-          image: Assets.imagesPageViewItem2Image,
+          isvisible: false,
+          image: Assets.onboarding_2,
           backgroundImage: Assets.imagesPageViewItem2BackgroundImage,
           subtitle:
-              'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
+              "A variety of study materials for all levels.\nGet ready to achieve your goals!",
           title: Text(
-            'ابحث وتسوق',
+            'Get ready to achieve your goals',
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Color(0xFF0C0D0D),
@@ -61,7 +60,8 @@ class OnBoardingPageView extends StatelessWidget {
               height: 0,
             ),
           ),
-        )
+        ),
+        
       ],
     );
   }
