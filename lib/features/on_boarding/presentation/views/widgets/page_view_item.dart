@@ -1,7 +1,7 @@
 import 'package:final_fruit_app/constants.dart';
 import 'package:final_fruit_app/core/services/shared_preferencesingleton.dart';
 import 'package:final_fruit_app/core/utils/app_text_style.dart';
-import 'package:final_fruit_app/features/auth/presentation/views/login_view.dart';
+import 'package:final_fruit_app/features/auth/presentation/views/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -46,7 +46,7 @@ class PageviewItem extends StatelessWidget {
                 child: GestureDetector(
                   onTap: (){
                      Prefs.setBool(kIsOnBoardingViewSeen, true);
-                    Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+                    Navigator.of(context).pushReplacementNamed(SigninView.routeName);
                   },
                   child: Padding(
                         padding: const EdgeInsets.all(16),

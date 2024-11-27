@@ -1,9 +1,9 @@
-abstract class Failier{
+abstract class Failure{
   final String message;
 
-  Failier( this.message);
+  Failure( this.message);
   
 }
-class ServerFailier extends Failier{
-  ServerFailier(super.message);
+class ServerFailure extends Failure{
+  ServerFailure(super.message);
 }
