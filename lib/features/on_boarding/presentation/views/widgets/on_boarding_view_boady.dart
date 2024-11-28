@@ -3,7 +3,7 @@ import 'package:final_fruit_app/constants.dart';
 import 'package:final_fruit_app/core/services/shared_preferencesingleton.dart';
 import 'package:final_fruit_app/core/utils/app_colors.dart';
 import 'package:final_fruit_app/core/widgets/custom_button.dart';
-import 'package:final_fruit_app/features/auth/presentation/views/login_view.dart';
+import 'package:final_fruit_app/features/auth/presentation/views/signin_view.dart';
 import 'package:final_fruit_app/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 import 'package:flutter/material.dart';
 
@@ -61,11 +61,11 @@ class _OnBoardingViewBoadyiewBoadyState extends State<OnBoardingViewBoady> {
               maintainState: true,
               visible: currentPage == 1 ? true : false,
               child: CustomButton(
-                  text: "ابدأ الان",
+                  text: "Get Started",
                   onPressed: () {
                     Prefs.setBool(kIsOnBoardingViewSeen, true);
                     Navigator.of(context)
-                        .pushReplacementNamed(LoginView.routeName);
+                        .pushReplacementNamed(SigninView.routeName);
                   })),
         ),
         const SizedBox(

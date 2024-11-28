@@ -1,7 +1,7 @@
 import 'package:final_fruit_app/constants.dart';
 import 'package:final_fruit_app/core/services/shared_preferencesingleton.dart';
 import 'package:final_fruit_app/core/utils/app_text_style.dart';
-import 'package:final_fruit_app/features/auth/presentation/views/login_view.dart';
+import 'package:final_fruit_app/features/auth/presentation/views/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -28,30 +28,31 @@ class PageviewItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.5,
           child: Stack(
             children: [
-              Positioned.fill(
-                child: SvgPicture.asset(
-                  backgroundImage,
-                  fit: BoxFit.fill,
-                ),
-              ),
+              // Positioned.fill(
+              //   child: SvgPicture.asset(
+              //     backgroundImage,
+              //     fit: BoxFit.fill,
+              //   ),
+              // ),
               Positioned(
                 bottom: 0,
+                top: 20,
                 left: 0,
                 right: 0,
-                child: SvgPicture.asset(image),
+                child: Image.asset(image),
               ),
               Visibility(
                 visible:isvisible ,
                 child: GestureDetector(
                   onTap: (){
                      Prefs.setBool(kIsOnBoardingViewSeen, true);
-                    Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+                    Navigator.of(context).pushReplacementNamed(SigninView.routeName);
                   },
                   child: Padding(
                         padding: const EdgeInsets.all(16),
                         child: Text(
-                          'تخط',
-                          style: TextStyles.regular13.copyWith(
+                          'Skip',
+                          style: TextStyles.regular16.copyWith(
                             color: const Color(0xFF949D9E),
                           ),
                         ),
@@ -61,7 +62,7 @@ class PageviewItem extends StatelessWidget {
             ],
           ),
         )
-     , const SizedBox(height: 64,)
+     , const SizedBox(height: 15,)
       ,title,
       const SizedBox(height: 24,),
       Padding(
@@ -69,7 +70,7 @@ class PageviewItem extends StatelessWidget {
         child: Text(
           subtitle,
         textAlign: TextAlign.center,
-         style: TextStyles.semiBold13.copyWith(
+         style: TextStyles.regular16.copyWith(
               color: const Color(0xFF4E5456),
             ),),
       ),

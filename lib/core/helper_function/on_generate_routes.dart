@@ -1,4 +1,4 @@
-import 'package:final_fruit_app/features/auth/presentation/views/login_view.dart';
+import 'package:final_fruit_app/features/auth/presentation/views/signin_view.dart';
 import 'package:final_fruit_app/features/auth/presentation/views/singup_view.dart';
 import 'package:final_fruit_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:final_fruit_app/features/splash/presentation/views/splash_view.dart';
@@ -13,8 +13,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     //   return MaterialPageRoute(builder: (context) => const CheckoutView());
     // case BestSellingView.routeName:
     //   return MaterialPageRoute(builder: (context) => const BestSellingView());
-    case LoginView.routeName:
-      return MaterialPageRoute(builder: (context) => const LoginView());
+    case SigninView.routeName:
+      return MaterialPageRoute(builder: (context) => const SigninView());
     case SignupView.routeName:
       return MaterialPageRoute(builder: (context) => const SignupView());
     // case MainView.routeName:
