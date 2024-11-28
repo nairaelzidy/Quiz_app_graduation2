@@ -14,6 +14,7 @@ import 'package:final_fruit_app/core/services/firebase_auth_service.dart';
 import 'package:final_fruit_app/features/auth/data/models/user_model.dart';
 import 'package:final_fruit_app/features/auth/domain/entites/user_entitiy.dart';
 import 'package:final_fruit_app/features/auth/domain/repo/auth_repo.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepoImple extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
@@ -31,13 +32,11 @@ class AuthRepoImple extends AuthRepo {
       return left(ServerFailure(e.message));
     } catch (e) {
       log("Exception in createUserWithEmailAndPassword:${e.toString()}");
-      return left(
-        ServerFailure("An error occurred. please try again later."));
+      return left(ServerFailure("An error occurred. please try again later."));
     }
-
   }
-  
-   @override
+
+  @override
   Future<Either<Failure, UserEntity>> signinWithEmailAndPassword(
       String email, String password) async {
     try {
@@ -62,6 +61,23 @@ class AuthRepoImple extends AuthRepo {
     }
   }
 
-
-
+  @override
+  Future<Either<Failure, UserEntity>> signinWithGoogle() async {
+    User? user;
+    try {
+      user = await firebaseAuthService.signInWithGoogle();
+      return right(
+        UserModel.fromFirebaseUser(user),
+      );
+    } on CustomException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      log(
+        'Exception in AuthRepoImpl.signinWithGoogle: ${e.toString()}',
+      );
+      return left(ServerFailure(
+        'Login Success.',
+      ));
+    }
+  }
 }

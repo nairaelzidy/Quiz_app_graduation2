@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:final_fruit_app/core/errors/exception.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthService {
   Future<User> createUserWithEmailAndPassword(
@@ -20,9 +21,9 @@ class FirebaseAuthService {
       } else if (e.code == 'email-already-in-use') {
         throw Exception("The account already exists for that email");
       } else if (e.code == 'network-request-failed') {
-        throw CustomException(message: 'Make sure you are connected to the internet');
-      } 
-      else {
+        throw CustomException(
+            message: 'Make sure you are connected to the internet');
+      } else {
         throw Exception("An error occurred. please try again later.");
       }
     } catch (e) {
@@ -30,7 +31,8 @@ class FirebaseAuthService {
       throw Exception("An error occurred. please try again later.");
     }
   }
-   Future<User> signInWithEmailAndPassword(
+
+  Future<User> signInWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
       final credential = await FirebaseAuth.instance
@@ -39,16 +41,14 @@ class FirebaseAuthService {
     } on FirebaseAuthException catch (e) {
       log("Exception in FirebaseAuthService.signInWithEmailAndPassword: ${e.toString()} and code is ${e.code}");
       if (e.code == 'user-not-found') {
-        throw CustomException(
-            message: 'The password or email is not found');
+        throw CustomException(message: 'The password or email is not found');
       } else if (e.code == 'wrong-password') {
-        throw CustomException(
-            message: 'The password  is incorrect');
+        throw CustomException(message: 'The password  is incorrect');
       } else if (e.code == 'invalid-credential') {
-        throw CustomException(
-            message: 'The password or email is incorrect');
+        throw CustomException(message: 'The password or email is incorrect');
       } else if (e.code == 'network-request-failed') {
-        throw CustomException(message: 'Make sure you are connected to the internet');
+        throw CustomException(
+            message: 'Make sure you are connected to the internet');
       } else {
         throw CustomException(
             message: 'لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.');
@@ -59,5 +59,19 @@ class FirebaseAuthService {
       throw CustomException(
           message: 'An error occurred. please try again later.');
     }
+  }
+
+  Future<User> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
   }
 }

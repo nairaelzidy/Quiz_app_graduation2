@@ -11,6 +11,7 @@ import 'package:final_fruit_app/features/auth/presentation/cubits/signin_cubit/s
 import 'package:final_fruit_app/features/auth/presentation/views/widgets/dont_have_acont.dart';
 import 'package:final_fruit_app/features/auth/presentation/views/widgets/or_divider.dart';
 import 'package:final_fruit_app/features/auth/presentation/views/widgets/social_login_button.dart';
+import 'package:final_fruit_app/features/home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -71,17 +72,16 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 height: 33,
               ),
               CustomButton(
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    context.read<SigninCubit>().signin( email,  password);
-                  }else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
-                  
-
-                }, text: "Sign in"),
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                      context.read<SigninCubit>().signin(email, password);
+                    } else {
+                      autovalidateMode = AutovalidateMode.always;
+                      setState(() {});
+                    }
+                  },
+                  text: "Sign in"),
               const SizedBox(
                 height: 33,
               ),
@@ -94,14 +94,16 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               SocialLoginButton(
                   image: Assets.imagesGoogleIcon,
                   title: "Sign in with Google",
-                  onPressed: () {}),
+                  onPressed: () {
+                    context.read<SigninCubit>().signinWithGoogle();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeView()));
+                  }),
               const SizedBox(
                 height: 16,
               ),
-              SocialLoginButton(
-                  image: Assets.imagesFacebookIcon,
-                  title: "Sign in with Facebook",
-                  onPressed: () {}),
             ],
           ),
         ),
